@@ -1,87 +1,67 @@
 <h1 align="center">
   <br>
-  Tugas 1 Seleksi Warga Basdat 2018
-  <br>
-  <br>
-</h1>
-
-<h2 align="center">
-  <br>
   Scraping Data Mobil Bekas
   <br>
   <br>
+</h1>
+
+<h4>
+  Made By: I Kadek Yuda Budipratama Giri - 13516115
 </h2>
 
 ### Description
-
-Pada program ini, terdapat web crawler yang akan mengambil data dari <a href="https://www.mobil123.com/">https://www.mobil123.com/</a>
+Pada program ini, terdapat web crawler yang akan mengambil data dari <a href="https://www.mobil123.com/">https://www.mobil123.com/</a>. Data yang diambil merupakan data mobil bekas yang ditawarkan oleh website tersbeut. Pada program ini, semua jenis mobil bekas diambil datanya.
 
 
 ### Specifications
+Program web crawler ini dibuat dengan spesfisikasi sebagai berikut:
+  - __Python 3.6.2__
+  - __BeautifulSoup 4.6.0__ sebagai library yang membantu mengambil data dari html</li>
+  - __urllib__ sebagai library yang melakukan request kepada web untuk mengunduh web agar dapat dicrawl</li>
+  - __JSON__ sebagai media penyimpanan data yang dicrawl</li>
 
-1. Lakukan data scraping dari sebuah laman web untuk memeroleh data atau informasi tertentu __TANPA MENGGUNAKAN API__
+Program web crawler dapat melakukan scraping data dengan mengakses https://www.mobil123.com/mobil-dijual/indonesiatype=used&page_number=X&page_size=Y dengan X adalah jumlah halaman yang ingin dicrawl dan Y adalah jumlah data per halaman. Total data yang diambil adalah X*Y. Pada program contoh, nilai X = 10 dan Y = 50, sehingga total data yang diambil adalah 500 data.
 
-2. Daftarkan judul topik yang akan dijadikan bahan data scraping pada spreadsheet berikut: [Topik Data Scraping](http://bit.ly/TopikDataScraping). Usahakan agar tidak ada peserta dengan topik yang sama. Akses edit ke spreadsheet akan ditutup tanggal 10 Mei 2018 pukul 20.00 WIB
+Data yang diambil adalah data harga, spesifikasi, jenis penjual, dan lokasi mobil bekas dijual. Spesifikasi meliputi merk, model, varian, tahun mobil dengan merk, model, dan varian mobil keluar, kapasitas mesin, transmisi, jumlah penumpang, dan warna mobil. Data yang sudah dicrawl akan disimpan dalam JSON dalam format `[Tanggal Crawling]-[Waktu Crawling Selesai]`
 
-3. Dalam mengerjakan tugas 1, calon warga basdat terlebih dahulu melakukan fork project github pada link berikut: https://github.com/wargabasdat/Seleksi-2018/tree/master/Tugas1. Sebelum batas waktu pengumpulan berakhir, calon warga basdat harus sudah melakukan pull request dengan nama ```TUGAS_SELEKSI_1_[NIM]```
-
-4. Pada repository tersebut, calon warga basdat harus mengumpulkan file script dan json hasil data scraping. Repository terdiri dari folder src dan data dimana folder src berisi file script/kode yang __WELL DOCUMENTED dan CLEAN CODE__ sedangkan folder data berisi file json hasil scraper.
-
-5. Peserta juga diminta untuk membuat Makefile sesuai template yang disediakan, sehingga program dengan gampang di-_build_, di-_run_, dan di-_clean_
-
-``` Makefile
-all: clean build run
-
-clean: # remove data and binary folder
-
-build: # compile to binary (if you use interpreter, then do not implement it)
-
-run: # run your binary
-
+### How To Use
+<p>
+Untuk menggunakan program ini, cukup menjalankan  
+  
 ```
-
-6. Deadline pengumpulan tugas adalah __15 Mei 2018 Pukul 23.59__
-
-7. Tugas 1 akan didemokan oleh masing-masing calon warga basdat
-
-8. Demo tugas mencakup keseluruhan proses data scraping hingga memeroleh data sesuai dengan yang dikumpulkan pada Tugas 1
-
-9. Hasil data scraping ini nantinya akan digunakan sebagai bahan tugas analisis dan visualisasi data
-
-10. Sebagai referensi untuk mengenal data scraping, asisten menyediakan dokumen "Short Guidance To Data Scraping" yang dapat diakses pada link berikut: [Data Scraping Guidance](http://bit.ly/DataScrapingGuidance)
-
-11. Tambahkan juga gitignore pada file atau folder yang tidak perlu di upload, __NB : BINARY TIDAK DIUPLOAD__
-
-12. JSON harus dinormalisasi dan harus di-_preprocessing_
+make
 ```
-Preprocessing contohnya :
-- Cleaning
-- Parsing
-- Transformation
-- dan lainnya
-```
+pada directory yang menyimpan file "Makefile"
+</p>
 
-13. Berikan README yang __WELL DOCUMENTED__ dengan cara __override__ file README.md ini. README harus memuat minimal konten :
-```
-- Description
-- Specification
-- How to use
-- JSON Structure
-- Screenshot program (di-upload pada folder screenshots, di-upload file image nya, dan ditampilkan di dalam README)
-- Reference (Library used, etc)
-- Author
-```
+### JSON Structure
+<p>File JSON terdiri atas sebuah list yang berisi seluruh data mobil bekas yang dikumpulkan. Elemen list terdiri atas sebuah dictionary yang memiliki struktur sebagai berikut:
+  <ul>
+    <li>"price" : harga dari mobil bekas</li>
+    <li>"make" : merk dari mobil bekas</li>
+    <li>"model" : model dari mobil bekas dengan merk yang diberikan</li>
+    <li>"variant" : variasi dari mobil bekas dengan model dan merk yang diberikan</li>
+    <li>"year": Tahun dari mobil dengan merk, model, dan varian tersbeut keluar</li>
+    <li>"engine_cap" : Kapasitas mesin mobil dalam satuan cc </li>
+    <li>"transmission" : Sistem transmisi yang digunakan mobil. (Manual/Automatic)</li>
+    <li>"passenger_cap" : kapasitas penumpang </li>
+    <li>"mileage" : Jarak total yang sudah ditempuh mobil</li>
+    <li>"color" : Warna mobil bekas </li>
+    <li>"seller" : Pihak yang menjual mobil </li>
+    <li>"loc_province" : Provinsi lokasi penjualan mobil </li>
+    <li>"loc_city" : Kota lokasi penjualan mobil</li>
+  </ul>
+</p>
 
-<h1 align="center">
-  <br>
-  Selamat BerEksplorasi!
-  <br>
-  <br>
-</h1>
+### Screenshots
+<img src="https://raw.githubusercontent.com/KadekYuda/Seleksi-2018/master/Tugas1/screenshots/screenshot_process.PNG">
+<img src="https://raw.githubusercontent.com/KadekYuda/Seleksi-2018/master/Tugas1/screenshots/screenshot_process2.PNG">
 
-<p align="center">
-  <br>
-  Basdat Industries - Lab Basdat 2018
-  <br>
-  <br>
+### Reference
+<p>Library yang dipakai:
+  <ul>
+    <li>BeautifulSoup4 https://www.crummy.com/software/BeautifulSoup/bs4/doc/</li>
+    <li>JSON https://docs.python.org/2/library/json.html</li>
+    <li>urllib https://docs.python.org/2/library/urllib.html</li>
+  </ul>
 </p>
