@@ -1,7 +1,7 @@
 import time
 import json
 import datetime
-from urllib.request import urlopen, Request
+from urllib.request import urlopen
 from bs4 import BeautifulSoup as soup
 
 # example for small singular URL
@@ -89,7 +89,7 @@ def PageCrawler(url):
 	for elements in container:
 		result = URLCrawler(elements.a["href"])
 		data.append(result)
-		time.sleep(5)
+		time.sleep(10)
 	return data
 
 def WebCrawler(pages, link_per_page):
@@ -107,7 +107,7 @@ def WebCrawler(pages, link_per_page):
 def getHTML(url):
 	# open connection and grabbing the webpage
 	# use Mozilla and Chrome user agent to prevent ban
-	uClient = urlopen(Request(url, headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36"}))
+	uClient = urlopen(url)
 	page_html = uClient.read()
 	uClient.close()
 	return page_html
@@ -119,7 +119,7 @@ def writeJSON(path, fileName, data):
 
 
 # the script starts from here
-result = WebCrawler(20, 50)
+result = WebCrawler(10, 50)
 # define time at the time scrapping is finished
 now = datetime.datetime.now()
 # use the time to name result file
