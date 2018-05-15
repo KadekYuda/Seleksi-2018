@@ -26,10 +26,27 @@ Data yang diambil adalah data harga, spesifikasi, jenis penjual, dan lokasi mobi
 
 ### How To Use
 <p>
-Untuk menggunakan program ini, cukup menjalankan  
+Sebelum menggunakan program, pastikan __Python 3__ dan __BeautifulSoup 4__ sudah terpasang pada komputer Anda. Untuk memeriksan versi dari Python, jalankan kode berikut pada Command Prompt/Terminal
   
+ ```
+ $ python --version 
+ ```
+ 
+ Untuk memeriksa versi dari BeautifulSoup, jalankan kode berikut pada Command Prompt. Python harus dipasang terlebih dahulu sebelum memasang BeautifulSoup.
+ ```
+ $ python
+ >> import bs4
+ >> bs4.__version__
+ ```
+ 
+ Untuk memasang BeautifulSoup dengan pip, jalankan perintah ini pada Command Prompt
+ ```
+ $ pip install bs4
+ ```
+ 
+Untuk menggunakan program ini, cukup menjalankan  
 ```
-make
+$ make
 ```
 pada directory yang menyimpan file "Makefile"
 </p>
@@ -56,6 +73,7 @@ pada directory yang menyimpan file "Makefile"
 ### Screenshots
 <img src="https://raw.githubusercontent.com/KadekYuda/Seleksi-2018/master/Tugas1/screenshots/screenshot_process.PNG">
 <img src="https://raw.githubusercontent.com/KadekYuda/Seleksi-2018/master/Tugas1/screenshots/screenshot_process2.PNG">
+<img src="https://raw.githubusercontent.com/KadekYuda/Seleksi-2018/master/Tugas1/screenshots/screenshot_process3.PNG">
 
 ### Reference
 <p>Library yang dipakai:
