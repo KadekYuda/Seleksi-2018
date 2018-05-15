@@ -31,7 +31,7 @@ def URLCrawler(url):
 	engine_cap = ""
 	transmission = ""
 	passenger_cap = ""
-	milage = ""
+	mileage = ""
 	color = ""
 	seller = ""
 
@@ -52,7 +52,7 @@ def URLCrawler(url):
 		elif (content == "Penumpang"):
 			passenger_cap = spec.find("span",{"class":"float--right"}).text
 		elif (content == "Kilometer"):
-			milage = spec.find("span",{"class":"float--right"}).text
+			mileage = spec.find("span",{"class":"float--right"}).text + " km"
 		elif (content == "Warna"):
 			color = spec.find("span",{"class":"float--right"}).text
 		price = page_soup.find("meta", {"name":"ga:cad:details:price"})["content"]
@@ -61,14 +61,16 @@ def URLCrawler(url):
 		loc_city = location[1]
 
 	# return json-like dict
-	result ={	"price"         : price,
+	result ={	
+		"price"         : price,
 		"make"          : make,
 		"model"         : model,
+		"variant"       : variant,
 		"year"          : year,
 		"engine_cap"    : engine_cap,
 		"transmission"  : transmission,
 		"passenger_cap" : passenger_cap,
-		"milage"		: milage,
+		"mileage"		: mileage,
 		"color"         : color,
 		"seller"		: seller,
 		"loc_province"  : loc_province,
