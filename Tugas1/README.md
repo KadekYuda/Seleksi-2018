@@ -7,10 +7,14 @@
 
 <h2 align="center">
   <br>
-  Data Scraping
+  Scraping Data Mobil Bekas
   <br>
   <br>
 </h2>
+
+### Description
+
+Pada program ini, terdapat web crawler yang akan mengambil data dari <a href="https://www.mobil123.com/">https://www.mobil123.com/</a>
 
 
 ### Specifications
