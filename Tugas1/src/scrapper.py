@@ -121,13 +121,13 @@ def writeJSON(path, fileName, data):
 
 
 # the script starts from here
-result = WebCrawler(10, 50)
+result = WebCrawler(1, 10)
 # define time at the time scrapping is finished
 now = datetime.datetime.now()
 # use the time to name result file
 fileName = str(now.year) + str(now.month) + str(now.day) + "-" + str(now.hour) + str(now.minute) + str(now.second)
 # I put the result file  in the ../data folder
-path = '../data'
+path = '/data'
 writeJSON(path, fileName, result)
 # show success message
 print("\nTotal data crawled: " + str(len(result)))
